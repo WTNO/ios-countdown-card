@@ -1,0 +1,91 @@
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  /* 整个容器默认可拖拽（Electron 原生窗口拖拽） */
+  -webkit-app-region: drag;
+}
+
+/* 卡牌堆叠区域 */
+.stackArea {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  /* 堆叠区域内不拖拽窗口，用手势切换卡片 */
+  -webkit-app-region: no-drag;
+}
+
+/* 单张卡片容器 - 绝对定位堆叠 */
+.cardWrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 空状态 */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--empty-bg, rgba(255, 255, 255, 0.3));
+  backdrop-filter: blur(20px);
+  color: var(--text-secondary);
+  cursor: pointer;
+  gap: 10px;
+  font-size: 14px;
+  -webkit-app-region: no-drag;
+}
+
+.emptyIcon {
+  font-size: 32px;
+  font-weight: 300;
+  opacity: 0.5;
+}
+
+/* 分页指示点 */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 2px 0;
+  -webkit-app-region: no-drag;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(128, 128, 128, 0.3);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dotActive {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.3);
+}
+
+/* 添加按钮提示 */
+.hint {
+  text-align: center;
+  padding: 4px;
+  border-radius: 8px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: var(--hint-bg, rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(20px);
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-app-region: no-drag;
+}
+
+.hint:hover {
+  background: var(--hint-hover-bg, rgba(255, 255, 255, 0.35));
+}

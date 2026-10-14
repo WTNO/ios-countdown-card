@@ -1,0 +1,51 @@
+{
+  "name": "ios-countdown-card",
+  "version": "1.0.0",
+  "description": "iOS 风格日程倒计时悬浮卡片 - Windows 桌面应用",
+  "main": "dist-electron/main.js",
+  "author": "Doubao",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && tsc -p electron/tsconfig.json",
+    "preview": "vite preview",
+    "electron:dev": "node scripts/dev.cjs",
+    "electron:build": "npm run build && electron-builder",
+    "electron:start": "electron ."
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.3"
+  },
+  "build": {
+    "appId": "com.doubao.ioscountdown",
+    "productName": "iOS倒计时卡片",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "public/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

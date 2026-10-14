@@ -1,0 +1,144 @@
+.card {
+  position: relative;
+  border-radius: 20px;
+  padding: 20px;
+  color: #fff;
+  overflow: hidden;
+  user-select: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* 悬浮操作按钮 */
+.actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  -webkit-app-region: no-drag;
+  z-index: 10;
+}
+
+.card:hover .actions {
+  opacity: 1;
+}
+
+.actionBtn {
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  -webkit-app-region: no-drag;
+  z-index: 10;
+}
+
+.actionBtn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* 标题 */
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 8px;
+  opacity: 0.95;
+}
+
+/* 天数大数字 */
+.daysRow {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.daysNum {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+}
+
+.daysUnit {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* 时分秒 */
+.timeRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.timeBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.timeNum {
+  font-size: 22px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.timeLabel {
+  font-size: 10px;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+.colon {
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.6;
+  margin-bottom: 13px;
+}
+
+/* 状态标签 */
+.badgePaused,
+.badgeDone {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.badgeDone {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 备注 */
+.note {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.7;
+  font-weight: 400;
+}
